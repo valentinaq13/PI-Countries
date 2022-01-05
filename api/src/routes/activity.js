@@ -4,7 +4,33 @@ const axios = require("axios");
 // Ejemplo: const authRouter = require('./auth.js');
 const { Country, Activity } = require('../db');
 const router = Router();
-const { getAllCountries } = require("./controllers")
 
+
+router.post('/',async (req,res) =>{
+    let {
+        name,
+       difficulty,
+       duration,
+       season,
+       countries
+    } = req.body;
+    try{
+
+    let activityCreated = await Activity.create({
+       name,
+       difficulty,
+       duration,
+       season
+    })
+    let country = await Country.findAll({
+        where: {
+            id: countries
+        }
+    })
+    activityCreated.addCountry(country)
+    res.send('Activity created successsfully' + activityCreated)
+}catch(e){console.log(e)}
+
+});
 
 module.exports = router;

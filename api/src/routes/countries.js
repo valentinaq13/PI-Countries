@@ -25,8 +25,10 @@ router.get("/", async (req, res) =>{
 router.get("/:id", async (req, res) => {
     try {
         const { id } = req.params;
-        const project = await Country.findByPk(id);
-        project ?
+        const project = await Country.findByPk(id.toUpperCase(), {
+            include: Activity,
+        });
+            project ?
             res.status(200).json(project) :
             res.status(404).send("Pais no encontrado")
     }
