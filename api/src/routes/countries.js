@@ -22,4 +22,15 @@ router.get("/", async (req, res) =>{
     catch(e){console.log(e)}
 });
 
+router.get("/:id", async (req, res) => {
+    try {
+        const { id } = req.params;
+        const project = await Country.findByPk(id);
+        project ?
+            res.status(200).json(project) :
+            res.status(404).send("Pais no encontrado")
+    }
+    catch (e) { console.log(e) }
+});
+
 module.exports = router;
