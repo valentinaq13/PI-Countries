@@ -3,6 +3,7 @@ import styles from "./Paginado.module.css"
 
 
 function Paginado({ countriesPerPage, allCountries, paginado }) {
+    
     const pageNumbers = []
 
     for (let i = 0; i <= Math.ceil(allCountries/countriesPerPage); i++) {
