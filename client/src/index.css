@@ -1,13 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+*{
+  box-sizing: border-box;
+}
+
 body {
+  /* background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6bsALOGkHiv2q0sf_uhcGii4vT9tM6qmEQg&usqp=CAU); */
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+ 
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+
+
+ video{
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: -2;
+  opacity: .90;
+}
+
+/* .header{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: bisque;
+} */
+
+/* .content{
+max-width: 49rem;
+padding-left: 1rem;
+padding-right: 1rem;
+margin: auto;
+text-align: center;
+} */
+/* 
+.header-video{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.header-video video{
+  min-width: 100%;
+  min-height: 100%;
+}
+.header-overlay{
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #303952;
+  z-index: -2;
+  opacity: .45;
+} */
+/* .header-content{
+  z-index: 2;
+}  */
+/* .header-content h1{
+  font-size: 50px;
+  margin-bottom: 0;
+  font-family: 'Lobster', cursive;
+} */
+
+/* .header-content p {
+  font-size: 1.5rem;
+  display: block;
+  padding-bottom: 2rem;
+} */
