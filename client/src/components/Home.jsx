@@ -1,14 +1,18 @@
 import React from 'react'
 import Countries from './Countries'
 import Navbar from './navbar/Navbar'
+import AscDes from './Filters/AscDes'
 
 function Home() {
     return (
         <div>
+            <nav>
            <Navbar/>
+           </nav>
+           <AscDes/>
+
+
            <Countries/>
-           
-            
         </div>
     )
 }

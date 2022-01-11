@@ -38,13 +38,13 @@ function Countries() {
                
                 <button onClick={e => { handleClick(e) }}>Volver a cargar todos los países</button>
             </div>
-            <div>
+            {/* <div>
                 <p>Order by:</p>
                 <select>
                     <option value="asc">Ascendente</option>
                     <option value="desc">Descendente</option>
                 </select>
-            </div>
+            </div> */}
             {
                 currentCountries.map(el => {
                     return (
