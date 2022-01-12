@@ -28,8 +28,9 @@ router.post('/',async (req,res) =>{
         }
     })
     activityCreated.addCountry(country)
-    res.send('Activity created successsfully' + activityCreated)
-}catch(e){console.log(e)}
+    res.status(200).send(activityCreated)
+
+}catch(e){res.status(500).send("Could not process request, please try again later")}
 
 });
 
