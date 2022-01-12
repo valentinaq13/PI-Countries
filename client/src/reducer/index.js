@@ -1,8 +1,9 @@
-import { GET_COUNTRIES, FILTER_BY_NAME, SEARCH_BY_NAME } from '../actions'
+import { GET_COUNTRIES, FILTER_BY_NAME, SEARCH_BY_NAME } from '../components/actions'
 
 const initialState = {
     countries: [],
-    allCountries: []
+    allCountries: [],
+    activities:[]
     
 }
 
@@ -44,6 +45,12 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state, countries: sort
             }
+            case "POST_COUNTRY":
+                return{
+                    ...state,
+
+                }
+            
 
 
 

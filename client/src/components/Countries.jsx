@@ -1,7 +1,7 @@
 import React from 'react';
 import{useState, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {getCountries} from "../actions";
+import {getCountries} from "../components/actions";
 import Card from './Card';
 
 import Paginado from './paginado/Paginado';

@@ -1,6 +1,6 @@
 import React from 'react';
 import {useDispatch} from "react-redux";
-import { filterByLetter } from '../../actions'
+import { filterByLetter } from '../actions'
 
 function AscDes() {
     const dispatch = useDispatch();
