@@ -1,14 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Lobster&family=PT+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Lobster&family=PT+Sans&family=Spartan:wght@300&display=swap');
 
 .landing{
-    font-family: 'Lobster', cursive;
+    font-family: 'Spartan', sans-serif;
     font-size: 10em;
-    color: bisque;
+    color: rgb(243, 239, 234);
 }
 
 .landing2{
-    font-family: 'Lobster', cursive;
-    font-size: 5em;
-    color: bisque;
-    background-color: rgb(165, 52, 52);
+    font-family: 'Spartan', sans-serif;
+    font-size: 4em;
+    color: rgb(247, 242, 235);
+    background-color:rgba(46, 229, 157, 0.4);
+
+     /* rgb(165, 52, 52); */
+    padding-top: 10px;
+    text-align: center;
 }

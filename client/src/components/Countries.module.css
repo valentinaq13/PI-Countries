@@ -1,0 +1,35 @@
+.home {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 100%;
+}
+.navBar {
+  display: flex;
+  background-color: #416c7cc7;
+  backdrop-filter: blur(0.5rem);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding-top: 1rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  gap: 2rem;
+}
+
+.links {
+  
+  align-items: center;
+  gap: 1rem;
+  margin: auto;
+}
+.detail {
+  display: flex;
+  flex-direction: row;
+  border-radius: 12px;
+  background: #cbdfbd;
+  background-size: 5rem;
+  box-shadow: 5px 5px 12px #5a5a5a, -5px -5px 12px #ffffff;
+}

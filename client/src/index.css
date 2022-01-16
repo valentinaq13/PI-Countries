@@ -1,7 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Lobster&family=PT+Sans&family=Spartan:wght@300&display=swap');
+
 
 *{
   box-sizing: border-box;
+}
+
+
+h1, h2, h3, h4, h5{
+    font-family: 'Spartan', sans-serif;
+}
+
+input{
+  border-radius: 25px;
+  font-size: 14px;
+}
+
+select{
+  border-radius: 25px;
+}
+
+option{
+  border-radius: 25px;
 }
 
 body {
@@ -12,6 +32,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-size: cover;
+  background-attachment: fixed;
+  margin: auto;
+  display: grid;
+  flex-direction: wrap;
+  flex-wrap: wrap;
  
 }
 

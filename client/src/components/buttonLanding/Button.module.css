@@ -16,7 +16,7 @@
     .btn::before{
         bottom: 0; right: 0;
         width: 100%; height: 100%;
-        background: #b63939;
+        background: #68a858;
     box-shadow: 0 10px 30px rgba(10, 9, 9, 0.568);
     }
     .btn::after{

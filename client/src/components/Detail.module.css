@@ -1,0 +1,100 @@
+.divDetail {
+    margin-top: 20px;
+    margin-left: 270px;
+    width: 300px;
+    height: 520px;
+    padding-top: 70px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 90px;
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.911);
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.616);
+    float: left;
+}
+
+.ntfA {
+    color: rgb(110, 39, 39);
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.divAct {
+    float: right;
+    width: 300;
+    height: 520;
+    background-color: rgba(0, 0, 0, 0.911);
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.616);
+    border-radius: 3px;
+    padding-top: 70px;
+    padding-left: 100px;
+    padding-right: 90px;
+    padding-bottom: 90px;
+    margin-left: 100px;
+    margin-top: 20px;
+}
+
+.activ {
+    color: rgba(223, 221, 221, 0.726);
+}
+
+.elementsAct {
+    color: white;
+    list-style: none;   
+}
+
+.activity {
+    background-color: rgba(245, 245, 220, 0.144);
+    padding: 25px;
+    margin-bottom: 10px;
+}
+
+.liAct {
+    margin-bottom: 10px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+.spanAct {
+    margin-right: 5px;
+    color: rgb(153, 153, 153);
+    font-weight: bold;
+}
+
+.img {
+    width: 300px;
+    height: 200px;
+}
+
+.name {
+    color: rgb(153, 153, 153);
+    font-weight: bold;
+}
+
+.backdet {
+    background-color: rgba(54, 54, 54, 0.534);
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-color: rgba(0, 0, 0, 0);
+    color: rgb(184, 184, 184);
+    padding-left: 30px;
+    padding-right: 30px
+}
+
+.id {
+    display:block;
+    text-align:center;
+    color: rgba(231, 209, 177, 0.836);
+    font-weight: bold;
+}
+
+.info {
+    color: white;
+    font-weight: bold;
+}
+
+.info2 {
+    padding-right: 5px;
+    color: rgba(223, 221, 221, 0.726);
+    font-weight: bold;
+}

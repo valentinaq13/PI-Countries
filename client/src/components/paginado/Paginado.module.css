@@ -14,12 +14,12 @@
   ul.pagination li {
     display: inline-block;
     width: 30px;
-    border: 1px solid #e96a6a;
+   
     border-radius: 5px;
     display: flex;
     justify-content: center;
     font-size: 25px;
-    background-color: rgb(204, 173, 51);
+    background-color: rgba(46, 229, 157, 0.4);
     
   }
   

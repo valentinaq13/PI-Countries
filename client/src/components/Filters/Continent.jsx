@@ -1,15 +1,20 @@
-import React from 'react'
+import React from 'react';
+import { filterByContinent } from "../../actions";
+import { useDispatch } from "react-redux"
+
 
 function Continent() {
+    const dispatch = useDispatch();
 
-    function handleContinent(e){
-        dispatch()
+    function handleContinent(e) {
+        dispatch(filterByContinent(e.target.value))
     }
 
 
     return (
         <div>
-            <select>
+     
+            <select onChange={e => handleContinent(e)}>
                 <option value="Africa">Africa</option>
                 <option value="Antarctica">Antarctica</option>
                 <option value="Asia">Asia</option>
@@ -18,7 +23,7 @@ function Continent() {
                 <option value="Oceania">Oceania</option>
                 <option value="South America">South America</option>
             </select>
-            
+
         </div>
     )
 }

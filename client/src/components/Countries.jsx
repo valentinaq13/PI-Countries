@@ -1,11 +1,11 @@
 import React from 'react';
 import{useState, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {getCountries} from "../components/actions";
+import {getCountries} from "../actions";
 import Card from './Card';
-
+import styles from "./Countries.module.css"
 import Paginado from './paginado/Paginado';
-import { NavLink } from "react-router-dom"
+import { NavLink, Link } from "react-router-dom"
 
 
 function Countries() {
@@ -32,7 +32,7 @@ function Countries() {
         dispatch(getCountries());
     }
     return (
-        <div>
+        <div >
          
             <div>
                
@@ -45,17 +45,19 @@ function Countries() {
                     <option value="desc">Descendente</option>
                 </select>
             </div> */}
+            <div className={styles.cards}>
             {
                 currentCountries.map(el => {
                     return (
                         <fragment>
-                            <NavLink to={"/home/" + el.id}>
-                                <Card name={el.name} flag={el.flag} continent={el.continent} />
-                            </NavLink>
+                            <Link to={"/home/" + el.id} style={{paddingLeft: 13, textDecoration: 'none', color: 'gray'}}>
+                                <Card name={el.name} flag={el.flag} continent={el.continent} id={el.id} />
+                            </Link>
                         </fragment>
                     )
                 })
             }
+            </div>
             <Paginado
             countriesPerPage={countriesPerPage}
             allCountries={allCountries.length}
