@@ -19,20 +19,26 @@ router.get("/", async (req, res) =>{
             res.status(200).send(countriesTotal)
         }
     }
-    catch(e){console.log(e)}
+    catch(e){res.status(404).send("Country not founded")}
 });
 
 router.get("/:id", async (req, res) => {
     try {
         const { id } = req.params;
         const project = await Country.findByPk(id.toUpperCase(), {
-            include: Activity,
+            include:{ 
+                model: Activity,
+                attributes:["name", "difficulty", "duration", "season"],
+                through: {
+                    attributes: [],
+                }
+            }
         });
             project ?
             res.status(200).json(project) :
             res.status(404).send("Pais no encontrado")
     }
-    catch (e) { console.log(e) }
+    catch (e) {res.status(404).send("Country not founded")}
 });
 
 module.exports = router;

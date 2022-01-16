@@ -76,10 +76,23 @@ const getAllCountries = async () => {
     // const infoTotal = apiInfo.concat(dbInfo);
     // return infoTotal
 }
+const getActivity = async () => {
+    const activity = await Activity.findAll({
+        include: { 
+            model: Country,
+            attributes:["name", "flag", "continent"],
+            through: {
+                attributes: [],
+            }
+        }
+    })
+    return activity
+}
 
 
 module.exports={
     getAllCountries,
     getDbInfo,
-    getApiInfo
+    getApiInfo,
+    getActivity
 }
