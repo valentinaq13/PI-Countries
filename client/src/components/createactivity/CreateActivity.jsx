@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react';
-import {NavLink, useHistory} from "react-router-dom";
-import {postActivity, getCountries} from "../../actions";
-import {useDispatch, useSelector} from "react-redux";
+import React, { useState, useEffect } from 'react';
+import { NavLink, useHistory } from "react-router-dom";
+import { postActivity, getCountries } from "../../actions";
+import { useDispatch, useSelector } from "react-redux";
 import style from "./CreateActivity.module.css"
 
 
@@ -21,11 +21,11 @@ function CreateActivity() {
 
 
     function handleChange(e) {
-        setInput({ ...input, [e.target.name]: e.target.value,})
+        setInput({ ...input, [e.target.name]: e.target.value, })
     }
 
-    function handleCheck(e) { if (e.target.checked) { setInput({ ...input, season: e.target.value })}}
-   
+    function handleCheck(e) { if (e.target.checked) { setInput({ ...input, season: e.target.value }) } }
+
     function handleSelect(e) {
         setInput({
             ...input, countries: [...input.countries, e.target.value]
@@ -34,7 +34,7 @@ function CreateActivity() {
     function handleSubmit(e) {
         e.preventDefault()
         console.log(input)
-        dispatch(postActivity(input))  
+        dispatch(postActivity(input))
         setInput({ name: "", difficulty: "", duration: "", season: "", countries: [] }) //seteo el input vacio de nuevo
         // alert("Activity Created OK")
         // history.push("/home") //una vez creada la actividad me redirige a home
@@ -70,7 +70,7 @@ function CreateActivity() {
                     <label> Season: </label>
                     <label><input type="checkbox" value="summer" name="summer" onChange={handleCheck} />summer </label>
                     <label><input type="checkbox" value="spring" name="spring" onChange={handleCheck} />spring </label>
-                    <label><input type="checkbox" value="autumn" name="autumn" onChange={handleCheck}/>autumn </label>
+                    <label><input type="checkbox" value="autumn" name="autumn" onChange={handleCheck} />autumn </label>
                     <label><input type="checkbox" value="winter" name="winter" onChange={handleCheck} />winter </label>
                 </div>
                 <select onChange={(e) => handleSelect(e)}>
@@ -92,7 +92,7 @@ function CreateActivity() {
                 </div>
             )}
             <hr />
-             <NavLink to="/home"><button>Go Back</button></NavLink>
+            <NavLink to="/home"><button>Go Back</button></NavLink>
         </div>
     )
 }

@@ -1,28 +1,27 @@
 import React, { useEffect, useState } from 'react';
-import {useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import { sortFunction, getCountries } from '../../actions';
 import styles from "./FiltActivity.module.css"
 
 function AscDes() {
     const dispatch = useDispatch();
-   
-//    const [orden, setOrden] = useState("")
 
-   useEffect(() => { dispatch(sortFunction())}, [dispatch])
-    
+    //    const [orden, setOrden] = useState("")
 
-    function handleFilter(e){
+    useEffect(() => { dispatch(getCountries()) }, [dispatch])
+
+
+    function handleFilter(e) {
         e.preventDefault()
         dispatch(sortFunction(e.target.value))
-        //console.log(e.target.value + "HOLAAA")
-
+        console.log(e.target.value + "HOLAAA")
         // setOrden(e.target.value)
     }
-     
+
     return (
         <div>
             <p>You can:</p>
-           <select onChange={ e => handleFilter(e)}>
+            <select onChange={e => handleFilter(e)}>
                 <option value="asc"> from A to Z</option>
                 <option value="desc"> from Z to A</option>
             </select>

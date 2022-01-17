@@ -1,7 +1,7 @@
 import React from 'react';
 import{useState, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {getCountries} from "../actions";
+import {getCountries, sortFunction} from "../actions";
 import Card from './Card';
 import styles from "./Countries.module.css"
 import Paginado from './paginado/Paginado';
@@ -12,6 +12,7 @@ function Countries() {
 
     const dispatch = useDispatch()
     const allCountries = useSelector((state) => state.countries)
+    const[orden, setOrden] = useState("")
     const [currentPage, setCurrentPage] = useState(1)//1ro mi pagina actual y un estado q setee mi pag actual
     const [countriesPerPage, setCountriesPerPage] = useState(10)//setea cant personajes x pag
     const lastCountry = currentPage * countriesPerPage//10
@@ -30,21 +31,32 @@ function Countries() {
     function handleClick(e) {
         e.preventDefault();
         dispatch(getCountries());
+        
+    }
+    function handleFilter(e) {
+        e.preventDefault()
+        dispatch(sortFunction(e.target.value))
+        console.log(e.target.value + "HOLAAA")
+        // setOrden(e.target.value)
+        setCurrentPage(1); 
+        setOrden(`Ordenado ${e.target.value}`) //para lo unico que lo uso, es para que me haga la modificacion en el renderizado
     }
     return (
         <div >
-         
             <div>
+            <p>You can order:</p>
+            <select onChange={e => handleFilter(e)}>
+                <option value="asc"> from A to Z</option>
+                <option value="desc"> from Z to A</option>
+                <option value="max">+ Population</option>
+                <option value="min">-Population</option>
+            </select>
+        </div>
+        <hr />
+        <div>
                
-                <button onClick={e => { handleClick(e) }}>Volver a cargar todos los países</button>
-            </div>
-            {/* <div>
-                <p>Order by:</p>
-                <select>
-                    <option value="asc">Ascendente</option>
-                    <option value="desc">Descendente</option>
-                </select>
-            </div> */}
+               <button onClick={e => { handleClick(e) }}>Volver a cargar todos los países</button>
+           </div>
             <div className={styles.cards}>
             {
                 currentCountries.map(el => {
@@ -58,6 +70,7 @@ function Countries() {
                 })
             }
             </div>
+           
             <Paginado
             countriesPerPage={countriesPerPage}
             allCountries={allCountries.length}

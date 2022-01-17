@@ -30,34 +30,7 @@ function rootReducer(state = initialState, action) {
 
             }
 
-        case FILTER_BY_NAME:
-            let sortedCountries = action.payload === "asc" ?
-                state.countries.sort(function (a, b) {
-                    if (a.name > b.name) {
-                        return 1;
-                    }
-                    if (b.name > a.name) {
-                        return -1;
-                    }
-                    return 0;
-                }) : //sino, va a ser "desc"
-                state.countries.sort(function (a, b) {
-                    if (a.name > b.name) {
-                        return -1;
-                    }
-                    if (b.name > a.name) {
-                        return 1;
-                    }
-                    return 0; //no hay cambios, lo devuelve igual
-                })
-            return {
-                ...state, countries: sortedCountries
-            }
-        // case POST_ACTIVITY:
-        //     return {
-        //         ...state, activities: action.payload
 
-        //     }
         case GET_DETAIL:
             return {
                 ...state, detail: action.payload
@@ -69,8 +42,7 @@ function rootReducer(state = initialState, action) {
             }
             
         case FILTER_ACTIVITY:
-            // const allActivities = state.activities
-            const actFiltered = state.countries.filter(c => c.activities && c.activities.map(a => a.name).includes(payload))
+            const actFiltered = state.countries.filter(c => c.activities && c.activities.map(a => a.name).includes(action.payload))
             return {
                 ...state, countries: actFiltered,
 

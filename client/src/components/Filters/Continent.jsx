@@ -13,7 +13,7 @@ function Continent() {
 
     return (
         <div>
-     
+
             <select onChange={e => handleContinent(e)}>
                 <option value="Africa">Africa</option>
                 <option value="Antarctica">Antarctica</option>

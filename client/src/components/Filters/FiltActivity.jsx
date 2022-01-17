@@ -4,41 +4,42 @@ import { useDispatch, useSelector } from "react-redux"
 import styles from "./FiltActivity.module.css"
 
 
-export default function FiltActivity(){
+export default function FiltActivity() {
 
     let dispatch = useDispatch()
-    const allActivities = useSelector((state)=> state.activities)
-    const countriesEstado = useSelector(state => state.countries)
+    const allActivities = useSelector((state) => state.activities)
+    // const countriesEstado = useSelector(state => state.countries)
 
-    useEffect(() => { dispatch(getActivities())}, [dispatch])
+    useEffect(() => { dispatch(getActivities()) }, [dispatch])
 
-    const[input, setInput] = useState()
+    // const [input, setInput] = useState()
     const handleChange = (e) => {
-        setInput(e.target.value)
+       dispatch(filterByActivities(e.target.value))
+       console.log(e.target.value + "HOLAAA")
     }
 
-    let auxfilter = allActivities.filter(e => e.name === input)
+    // let auxfilter = allActivities.filter(e => e.name === input)
 
     //console.log(auxfilter)
-    return(
+    return (
         <div>
-            <select className={styles.select} value={input} onChange={(e)=> handleChange(e)}>
-                
+            <select className={styles.select} onChange={(e) => handleChange(e)}>
+
                 <option>Select Activity</option>
-                {allActivities?.map(e => (<option key={e.id}>{e.name}</option>))}
-           
+                {allActivities?.map(e => (<option key={e.id} value={e.name}>{e.name}</option>))}
+
             </select>
-            <div >
-                
-                {auxfilter.map(e =>{
+            {/* <div className={styles.navBar}>
+
+                {auxfilter.map(e => {
                     return (
                         <div key={e.id} className={styles.card}>
-                            <h2>Countries: {e.countries?.map(e=>(
+                            <h2>Countries: {e.countries?.map(e => (
                                 <div key={e.id}>
                                     <h4>{e.name}</h4>
-                                     <img src={e.flag} alt={e.name} style={{ width: "5em" }}/>
+                                    <img src={e.flag} alt={e.name} style={{ width: "5em" }} />
                                 </div>
-                                   ))}</h2> 
+                            ))}</h2>
                             <h3>Activity: {e.name}</h3>
                             <h3>Difficulty: {e.difficulty}</h3>
                             <h3>Duration: {e.duration}h</h3>
@@ -47,7 +48,7 @@ export default function FiltActivity(){
                     )
                 })
                 }
-            </div>
+            </div> */}
         </div>
     )
 }

@@ -6,7 +6,7 @@ import SearchBar from "../searchbar/SearchBar";
 function Navbar() {
   return (
     <div className={styles.div}>
-     
+
 
       <SearchBar />
       <span >
