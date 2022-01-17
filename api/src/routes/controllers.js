@@ -30,31 +30,6 @@ const getApiInfo = async () => {
     }
 };
 
-// const getApiInfo = async () => {
-//     try {
-//     const apiUrl = await axios.get("https://restcountries.com/v3/all")
-//     const apiInfo = await apiUrl.data.forEach(async (el) => {
-        
-//              await Country.create({
-//                 where: {
-//                     name: el.name.official,
-//                     id: el.cca3,
-//                     flag: el.flags[0],
-//                     continents: el.region,
-//                     capital: el.capital,
-//                     subregion: el.subregion,
-//                     area: el.area,
-//                     population: el.population
-//                 },
-//             })
-        
-//     }) 
-//     return apiInfo
-// } catch (e) { console.log(e) };
-  
-    
-// }
-
 const getDbInfo = async () => {
     return await Country.findAll({
         include: {

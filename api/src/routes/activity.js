@@ -19,10 +19,10 @@ router.post('/',async (req,res) =>{
     try{
 
     let activityCreated = await Activity.create({
-       name,
-       difficulty,
-       duration,
-       season
+       name: name.toLowerCase(),
+       difficulty: Math.ceil(difficulty),
+       duration: Math.ceil(duration),
+       season: season.toLowerCase(),
     })
     let findCountry = await Country.findAll({
         where: {
@@ -32,8 +32,8 @@ router.post('/',async (req,res) =>{
     await activityCreated.addCountry(findCountry)
     res.status(200).json('Activity created successfully');
 
-}catch(e){console.log(e)}
-//res.status(500).send("Could not process request, please try again later")
+}catch(e){res.status(500).send("Could not process request, please try again later")}
+
 
 });
 
