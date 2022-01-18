@@ -22,54 +22,43 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 countries: action.payload
             }
+
         case FILTER_CONTINENT:
-            const allCountries = state.allCountries //me traigo el estado de countries para filtrar en ésta const
+            const allCountries = state.allCountries
             const statusFiltered = allCountries.filter(el => el.continent === action.payload)
             return {
                 ...state, countries: statusFiltered,
-
             }
-
 
         case GET_DETAIL:
             return {
                 ...state, detail: action.payload
             }
-            
+
         case GET_ACTIVITIES:
             return {
                 ...state, activities: action.payload
             }
-            
+
         case FILTER_ACTIVITY:
             const actFiltered = state.countries.filter(c => c.activities && c.activities.map(a => a.name).includes(action.payload))
             return {
                 ...state, countries: actFiltered,
-
             }
+
         case SORT:
-            if (action.payload === "max") { return { ...state, countries: state.countries.sort((a, b) => a.population - b.population) } }
+            let data
+            action.payload === 'max' ? data = state.countries.sort((a, b) => a.population < b.population ? 1 : -1) :
+                action.payload === 'min' ? data = state.countries.sort((a, b) => a.population > b.population ? 1 : -1) :
+                    action.payload === 'asc' ? data = state.countries.sort((a, z) => a.name > z.name ? 1 : -1) :
+                        action.payload === 'desc' ? data = state.countries.sort((a, z) => a.name < z.name ? 1 : -1) :
+                            data = state.countries
 
-            if (action.payload === "min") { return { ...state, countries: state.countries.sort((a, b) => b.population - a.population) } }
+            return {
+                ...state,
+                countries: data.map(e => e)
+            }
 
-            if (action.payload === "asc") {
-                return {
-                    ...state, countries: state.countries.sort((a, b) => {
-                        if (a.name.toLowerCase() < b.name.toLowerCase()) { return -1; }
-                        if (a.name.toLowerCase() > b.name.toLowerCase()) { return 1 }
-                        return 0
-                    })
-                }
-            }
-            if (action.payload === "desc") {
-                return {
-                    ...state, countries: state.countries.sort((a, b) => {
-                        if (a.name.toLowerCase() > b.name.toLowerCase()) { return -1; }
-                        if (a.name.toLowerCase() < b.name.toLowerCase()) { return 1; }
-                        return 0
-                    }),
-                };
-            }
 
         default: return state;
 

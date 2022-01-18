@@ -26,8 +26,8 @@
   margin: auto;
 }
 .detail {
-  display: flex;
-  flex-direction: row;
+  
+  align-items: center;
   border-radius: 12px;
   background: #cbdfbd;
   background-size: 5rem;

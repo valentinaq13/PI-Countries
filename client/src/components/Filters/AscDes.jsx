@@ -22,13 +22,11 @@ function AscDes() {
         <div>
             <p>You can:</p>
             <select onChange={e => handleFilter(e)}>
+                <option>order</option>
                 <option value="asc"> from A to Z</option>
                 <option value="desc"> from Z to A</option>
-            </select>
-            <p>Population</p>
-            <select onChange={e => handleFilter(e)} >
-                <option value="max">Ascendent</option>
-                <option value="min">Descendent</option>
+                <option value="max">Ascendent population</option>
+                <option value="min">Descendent population</option>
             </select>
         </div>
     )

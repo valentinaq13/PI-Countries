@@ -11,6 +11,13 @@ h1{
     box-shadow:  5px 5px 12px #5a5a5a,
                  -5px -5px 12px #ffffff;
 }
+.flag{
+    border-radius: 74px;
+    background: cbdfbd;
+    background-size: 20rem;
+    box-shadow:  5px 5px 12px #5a5a5a,
+                 -5px -5px 12px #ffffff;
+}
 .text{
  font-size: 1rem;
  background-color: #76c893;

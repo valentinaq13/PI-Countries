@@ -15,7 +15,6 @@ export default function FiltActivity() {
     // const [input, setInput] = useState()
     const handleChange = (e) => {
        dispatch(filterByActivities(e.target.value))
-       console.log(e.target.value + "HOLAAA")
     }
 
     // let auxfilter = allActivities.filter(e => e.name === input)

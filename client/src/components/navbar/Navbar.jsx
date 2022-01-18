@@ -1,20 +1,15 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import SearchBar from "../searchbar/SearchBar";
 
 function Navbar() {
   return (
-    <div className={styles.div}>
-
-
+    <div className={styles.cards}>
       <SearchBar />
-      <span >
-        <NavLink to="/activity">
-          <button >Add Activity</button>
-
-        </NavLink>
-      </span>
+      <Link to="/activity">
+        <button >Add Activity</button>
+      </Link>
 
     </div>
   )

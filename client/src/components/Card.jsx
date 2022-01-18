@@ -10,7 +10,7 @@ function Card({name, flag, continent, id}) {
              <h2 className={style.text}>{name}</h2>
             <h3 className={style.text}>{continent}</h3>
             <p>{id}</p>
-            <img src={flag} alt="img not found" width="150px" height="150px" className={style.card} />
+            <img src={flag} alt="img not found" width="150px" height="150px" className={style.flag} />
         </div>
     )
 }

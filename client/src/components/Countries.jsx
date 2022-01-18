@@ -14,11 +14,16 @@ function Countries() {
     const allCountries = useSelector((state) => state.countries)
     const[orden, setOrden] = useState("")
     const [currentPage, setCurrentPage] = useState(1)//1ro mi pagina actual y un estado q setee mi pag actual
-    const [countriesPerPage, setCountriesPerPage] = useState(10)//setea cant personajes x pag
+    // const [countriesPerPage, setCountriesPerPage] = useState(10)//setea cant personajes x pag
+    var countriesPerPage = 0;
+    if (currentPage === 1){countriesPerPage = 9}
+    if(currentPage >= 2){countriesPerPage = 10 }
     const lastCountry = currentPage * countriesPerPage//10
     const firstCountry = lastCountry - countriesPerPage //0
     const currentCountries = allCountries.slice(firstCountry,lastCountry)//ésta constante tiene los personajes que estan en la pagina actual
     
+   
+
     const paginado = (pageNumber) =>{
         setCurrentPage(pageNumber)
     }
@@ -33,17 +38,17 @@ function Countries() {
         dispatch(getCountries());
         
     }
-    function handleFilter(e) {
-        e.preventDefault()
-        dispatch(sortFunction(e.target.value))
-        console.log(e.target.value + "HOLAAA")
-        // setOrden(e.target.value)
-        setCurrentPage(1); 
-        setOrden(`Ordenado ${e.target.value}`) //para lo unico que lo uso, es para que me haga la modificacion en el renderizado
-    }
+    // function handleFilter(e) {
+    //     e.preventDefault()
+    //     dispatch(sortFunction(e.target.value))
+    //     console.log(e.target.value + "HOLAAA")
+    //     // setOrden(e.target.value)
+    //     setCurrentPage(1); 
+    //     setOrden(`Ordenado ${e.target.value}`) //para lo unico que lo uso, es para que me haga la modificacion en el renderizado
+    // }
     return (
         <div >
-            <div>
+            {/* <div>
             <p>You can order:</p>
             <select onChange={e => handleFilter(e)}>
                 <option value="asc"> from A to Z</option>
@@ -51,7 +56,7 @@ function Countries() {
                 <option value="max">+ Population</option>
                 <option value="min">-Population</option>
             </select>
-        </div>
+        </div> */}
         <hr />
         <div>
                

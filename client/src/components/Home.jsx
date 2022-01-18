@@ -10,15 +10,14 @@ function Home() {
     return (
         <div>
             <h1 className={stilo.landing2}>Countries</h1>
-            <div className={stilo.navBar}>
+            <nav className={stilo.navBar}>
                 <Navbar />
                 <Continent />
                 <FiltActivity />
-                {/* <div className={stilo.navBar}>
+                <div className={stilo.navBar}>
                     <AscDes />
-                </div> */}
-            </div>
-
+                </div>
+            </nav>
             <Countries />
         </div>
     )

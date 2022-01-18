@@ -6,8 +6,9 @@
 }
 .navBar{
     display: flex;
-  flex-direction: row;
-   margin-left: 40px;
+    justify-content: space-evenly;
+    background-color: rgb(48, 46, 46);
+   padding-top: 50px;
   
 }
 
