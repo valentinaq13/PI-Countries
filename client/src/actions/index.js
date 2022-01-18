@@ -21,30 +21,6 @@ export function getCountries() {
         .catch((datos) => console.error(datos))
     }
   };
-// export function getCountries() {
-//     return async function (dispatch) {
-//       try{
-//       let resp = await axios.get('http://localhost:3001/countries')
-//           return dispatch({
-//             type: GET_COUNTRIES,
-//             payload: resp.data
-//           })
-//         }catch(e){console.log(e)}
-//       }
-//     }
-  
-// export function getCountries() {
-//   return function (dispatch) {
-//     fetch('http://localhost:3001/countries')
-//       .then(resp =>resp.json())
-//       .then(resp =>{   return dispatch({
-//         type: GET_COUNTRIES,
-//         payload: resp.data
-//       })})
-//       .catch((datos) => console.error(datos))
-//   }
-// };
-
   
   export function searchByName(name) {
     return async function (dispatch) {
