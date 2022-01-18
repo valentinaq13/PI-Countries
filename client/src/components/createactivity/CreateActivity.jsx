@@ -4,10 +4,10 @@ import { postActivity, getCountries } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
 import style from "./CreateActivity.module.css"
 
-function validate(input){
+function validate(input) {
     var errors = {};
-    if(!input.name){errors.name = "name is required"}
-    else if (!input.difficulty || input.difficulty > 5){errors.difficulty = "required from 1 to 5"}
+    if (!input.name) { errors.name = "name is required" }
+    else if (!input.difficulty || input.difficulty > 5) { errors.difficulty = "required from 1 to 5" }
     return errors;
 }
 
@@ -28,13 +28,14 @@ function CreateActivity() {
 
 
     function handleChange(e) {
-        setInput({ 
-            ...input, [e.target.name] : e.target.value, })
+        setInput({
+            ...input, [e.target.name]: e.target.value,
+        })
         setErrors(validate({
-            ...input, [e.target.name] : e.target.value
+            ...input, [e.target.name]: e.target.value
         }));
     }
-    
+
     function handleCheck(e) { if (e.target.checked) { setInput({ ...input, season: e.target.value }) } }
 
     function handleSelect(e) {
@@ -46,9 +47,9 @@ function CreateActivity() {
         e.preventDefault()
         console.log(input)
         dispatch(postActivity(input))
-        setInput({ name: "", difficulty: "", duration: "", season: "", countries: [] }) //seteo el input vacio de nuevo
-        // alert("Activity Created OK")
-        // history.push("/home") //una vez creada la actividad me redirige a home
+        setInput({ name: "", difficulty: "", duration: "", season: "", countries: [] })
+        alert("Activity Created OK")
+        history.push("/home")
     }
     function handleDelete(el) {
         setInput({
@@ -69,20 +70,20 @@ function CreateActivity() {
                     <label> Name: </label>
                     <input type="text" value={input.name} name="name" onChange={(e) => handleChange(e)} />
                     {
-                    errors.name && (<p>{errors.name}</p>)
-                  }
+                        errors.name && (<p>{errors.name}</p>)
+                    }
                 </div>
                 <div>
                     <label> Difficulty: </label>
                     <input type="number" placeholder="from 1 to 5" value={input.difficulty} name="difficulty" onChange={(e) => handleChange(e)} />
                     {
-                    errors.difficulty && (<p>{errors.difficulty}</p>)
-                  }
+                        errors.difficulty && (<p>{errors.difficulty}</p>)
+                    }
                 </div>
                 <div>
                     <label> Duration: </label>
-                    <input type="number" placeholder="months" value={input.duration} name="duration" onChange={(e) => handleChange(e)} /> 
-               
+                    <input type="number" placeholder="months" value={input.duration} name="duration" onChange={(e) => handleChange(e)} />
+
                 </div>
                 <div >
                     <label> Season: </label>

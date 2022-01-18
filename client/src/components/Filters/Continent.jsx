@@ -1,6 +1,7 @@
 import React from 'react';
 import { filterByContinent } from "../../actions";
-import { useDispatch } from "react-redux"
+import { useDispatch } from "react-redux";
+import styles from "./FiltActivity.module.css"
 
 
 function Continent() {
@@ -12,7 +13,7 @@ function Continent() {
 
 
     return (
-        <div>
+        <div className={styles.navBar}>
 
             <select onChange={e => handleContinent(e)}>
                 <option value="Africa">Africa</option>

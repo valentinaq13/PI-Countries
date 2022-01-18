@@ -11,10 +11,11 @@ function Home() {
         <div>
             <h1 className={stilo.landing2}>Countries</h1>
             <nav className={stilo.navBar}>
-                <Navbar />
+                
                 <Continent />
                 <FiltActivity />
                 <AscDes />
+                <Navbar />
             </nav>
             <Countries />
         </div>

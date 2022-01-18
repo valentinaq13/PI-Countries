@@ -21,7 +21,7 @@ export default function FiltActivity() {
 
     //console.log(auxfilter)
     return (
-        <div>
+        <div className={styles.navBar}>
             <select className={styles.select} onChange={(e) => handleChange(e)}>
 
                 <option>Select Activity</option>

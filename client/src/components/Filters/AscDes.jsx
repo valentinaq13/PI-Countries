@@ -6,21 +6,17 @@ import styles from "./FiltActivity.module.css"
 function AscDes() {
     const dispatch = useDispatch();
 
-    //    const [orden, setOrden] = useState("")
-
     useEffect(() => { dispatch(getCountries()) }, [dispatch])
-
 
     function handleFilter(e) {
         e.preventDefault()
         dispatch(sortFunction(e.target.value))
         console.log(e.target.value + "HOLAAA")
-        // setOrden(e.target.value)
     }
 
     return (
-        <div>
-            <p>You can:</p>
+        <div className={styles.navBar}>
+            
             <select onChange={e => handleFilter(e)}>
                 <option>order</option>
                 <option value="asc"> from A to Z</option>

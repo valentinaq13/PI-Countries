@@ -49,7 +49,7 @@ export function getCountries() {
   export function searchByName(name) {
     return async function (dispatch) {
       try {
-        let resp = await axios.get("http://localhost:3001/countries?name=" + name)
+        let resp = await axios.get(`http://localhost:3001/countries?name=${name}`)
         return dispatch({
           type: SEARCH_BY_NAME,
           payload: resp.data

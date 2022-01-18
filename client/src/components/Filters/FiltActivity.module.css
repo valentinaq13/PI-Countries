@@ -1,7 +1,11 @@
 .navBar{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
    
+}
+.filtro{
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .card{
