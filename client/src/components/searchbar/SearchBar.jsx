@@ -23,7 +23,7 @@ export default function SearchBar() {
   };
 
   return (
-    <div className={styles.divv}>
+    <div >
       <form className={styles.divv}>
         <input type="text" placeholder="Search by name..." autoComplete="off" onChange={(evento) => handleChange(evento)}
         />

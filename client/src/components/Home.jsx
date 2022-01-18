@@ -14,9 +14,7 @@ function Home() {
                 <Navbar />
                 <Continent />
                 <FiltActivity />
-                <div className={stilo.navBar}>
-                    <AscDes />
-                </div>
+                <AscDes />
             </nav>
             <Countries />
         </div>

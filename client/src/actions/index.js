@@ -68,12 +68,7 @@ export function getCountries() {
       payload
     }
   }
-  // export function filterPopulation(payload){
-  //   return{
-  //     type: FILTER_POPULATION,
-  //     payload
-  //   }
-  // }
+  
   export function filterByContinent(payload){
     return{
       type: FILTER_CONTINENT,
