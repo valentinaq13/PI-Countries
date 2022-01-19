@@ -7,9 +7,7 @@ export default function SearchBar() {
   const dispatch = useDispatch();
 
   const [input, setInput] = useState();
-  useEffect(() => {
-    dispatch(searchByName(input));
-  }, [dispatch])
+ 
 
   const handleChange = (evento) => {
     evento.preventDefault();
@@ -25,10 +23,9 @@ export default function SearchBar() {
   return (
     <div >
       <form className={styles.divv}>
-        <input type="text" placeholder="Search by name..." autoComplete="off" onChange={(evento) => handleChange(evento)}
+        <input type="text" value={input} required placeholder="Search by name..." autoComplete="off" onChange={(evento) => handleChange(evento)}
         />
         <button className={styles.divv} onClick={(evento) => handleSubmit(evento)}>Search Country</button>
-
       </form>
     </div>
   );
