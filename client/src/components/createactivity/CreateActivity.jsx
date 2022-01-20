@@ -4,14 +4,6 @@ import { postActivity, getCountries } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
 import style from "./CreateActivity.module.css"
 
-function validate(input) {
-    var errors = {};
-    if (!input.name) { errors.name = "name is required" }
-    else if (!input.difficulty || input.difficulty > 5) { errors.difficulty = "required from 1 to 5" }
-    return errors;
-}
-
-
 function CreateActivity() {
     const dispatch = useDispatch()
     const countriesA = useSelector((state) => state.countries)
@@ -45,12 +37,30 @@ function CreateActivity() {
     }
     function handleSubmit(e) {
         e.preventDefault()
-        console.log(input)
-        dispatch(postActivity(input))
-        setInput({ name: "", difficulty: "", duration: "", season: "", countries: [] })
-        alert("Activity Created OK")
-        history.push("/home")
+        if (validate()) {
+            dispatch(postActivity(input))
+            setInput({ name: "", difficulty: "", duration: "", season: "", countries: [] })
+        }
+        else { alert("Complete all options") }
+
     }
+    function validate() {
+        if (input.name.length === 0) {
+            return false;
+        } else if (/\d/.test(input.name)) {
+            return false;
+        } else if (input.difficulty === "") {
+            return false;
+        } else if (input.duration === "") {
+            return false;
+        } else if (input.season === "") {
+            return false;
+        } else if (input.countries.length === 0) {
+            return false
+        }
+        return true
+    };
+
     function handleDelete(el) {
         setInput({
             ...input, countries: input.countries.filter(c => c !== el)
@@ -68,22 +78,24 @@ function CreateActivity() {
             <form onSubmit={(e) => handleSubmit(e)} className={style.card}>
                 <div>
                     <label> Name: </label>
-                    <input type="text" value={input.name} name="name" onChange={(e) => handleChange(e)} />
+                    <input type="text" pattern="[Aa-Zz]" autoComplete="off" value={input.name} name="name" onChange={(e) => handleChange(e)} />
                     {
                         errors.name && (<p>{errors.name}</p>)
                     }
                 </div>
                 <div>
                     <label> Difficulty: </label>
-                    <input type="number" placeholder="from 1 to 5" value={input.difficulty} name="difficulty" onChange={(e) => handleChange(e)} />
+                    <input type="number" max="5" min="1" placeholder="from 1 to 5" value={input.difficulty} name="difficulty" onChange={(e) => handleChange(e)} />
                     {
                         errors.difficulty && (<p>{errors.difficulty}</p>)
                     }
                 </div>
                 <div>
                     <label> Duration: </label>
-                    <input type="number" placeholder="months" value={input.duration} name="duration" onChange={(e) => handleChange(e)} />
-
+                    <input type="number" min="0" placeholder="months" value={input.duration} name="duration" onChange={(e) => handleChange(e)} />
+                    {
+                        errors.duration && (<p>{errors.duration}</p>)
+                    }
                 </div>
                 <div >
                     <label> Season: </label>

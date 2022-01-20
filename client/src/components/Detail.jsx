@@ -19,12 +19,12 @@ function Detail() {
     console.log(detail)
     var count = 0
     return (
-        <div >
+        <div>
             <div key={detail?.id} className={style.card}>
                 
                 <img src={detail?.flag} alt="no flag founded" width="100%" className={styles.detail}/>
-                <h1>Country Name: {detail?.name}</h1>
-                <h2>Continent: {detail?.continent}</h2>
+                <h2>Country Name: {detail?.name}</h2>
+                <h3>Continent: {detail?.continent}</h3>
                 <p>Capital: {detail?.capital}</p>
                 <p>Subregion: {detail?.subregion}</p>
                 <p>Area: {detail?.area} km2</p>

@@ -30,9 +30,10 @@ export function searchByName(name) {
         type: SEARCH_BY_NAME,
         payload: resp.data
       });
-    } catch (error) { console.log(error.status)
-      if(error.response.status === 404){ alert("No se encontro pais")}
-      else{ console.log(error, JSON.stringify(error))}
+    } catch (error) {
+      console.log(error.status)
+      if (error.response.status === 404) { alert("No se encontro pais") }
+      else { console.log(error, JSON.stringify(error)) }
     }
   }
 }

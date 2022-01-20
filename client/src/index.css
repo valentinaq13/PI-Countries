@@ -46,7 +46,9 @@ code {
     monospace;
 }
 
-
+p{
+  margin: 10px;
+}
 
 
  video{

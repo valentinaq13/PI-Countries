@@ -1,10 +1,12 @@
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: rgb(184, 188, 190);
+    opacity: 0.8;
     max-width: 300px;
-    
     margin: auto;
     text-align: center;
     font-family: arial;
+    border-radius: 10px;
   }
   
   .price {
@@ -25,5 +27,9 @@
   
   .card button:hover {
     opacity: 0.7;
+  }
+
+  body{
+    margin: 20px;
   }
   

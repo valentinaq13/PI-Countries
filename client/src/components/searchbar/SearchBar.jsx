@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { searchByName } from "../../actions";
 import styles from "./SearchBar.module.css"
 
+
 export default function SearchBar() {
   const dispatch = useDispatch();
 
@@ -11,7 +12,7 @@ export default function SearchBar() {
 
   const handleChange = (evento) => {
     evento.preventDefault();
-    setInput(evento.target.value)
+   setInput(evento.target.value);
   }
 
   const handleSubmit = (evento) => {
@@ -23,8 +24,7 @@ export default function SearchBar() {
   return (
     <div >
       <form className={styles.divv}>
-        <input type="text" value={input} required placeholder="Search by name..." autoComplete="off" onChange={(evento) => handleChange(evento)}
-        />
+        <input type="text" value={input} required placeholder="Search by name..." autoComplete="off" onChange={(evento) => handleChange(evento)}/>
         <button className={styles.divv} onClick={(evento) => handleSubmit(evento)}>Search Country</button>
       </form>
     </div>
