@@ -9,7 +9,7 @@ const router = Router();
 
 router.post('/',async (req,res) =>{
     let {
-        name,
+       name,
        difficulty,
        duration,
        season,
