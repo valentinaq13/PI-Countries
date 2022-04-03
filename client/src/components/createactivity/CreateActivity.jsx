@@ -1,8 +1,16 @@
-import React, { useState, useEffect } from 'react';
+mport React, { useState, useEffect } from 'react';
 import { NavLink, useHistory } from "react-router-dom";
 import { postActivity, getCountries } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
 import style from "./CreateActivity.module.css"
+
+// function validate(input){
+//     const errors={}
+//     if(!input.name){errors.name = "name is required"}
+//     if (input.countries.length < 1){errors.countries = "field required"}
+//     if (input.name.length < 3){errors.name = "escribir mas de 3 letras"}
+//     return errors
+// }
 
 function CreateActivity() {
     const dispatch = useDispatch()
@@ -26,6 +34,7 @@ function CreateActivity() {
         setErrors(validate({
             ...input, [e.target.name]: e.target.value
         }));
+        
     }
 
     function handleCheck(e) { if (e.target.checked) { setInput({ ...input, season: e.target.value }) } }
@@ -39,7 +48,9 @@ function CreateActivity() {
         e.preventDefault()
         if (validate()) {
             dispatch(postActivity(input))
+            alert("Activy created succesfully !")
             setInput({ name: "", difficulty: "", duration: "", season: "", countries: [] })
+            history.push('/home')
         }
         else { alert("Complete all options") }
 
@@ -86,16 +97,12 @@ function CreateActivity() {
                 <div>
                     <label> Difficulty: </label>
                     <input type="number" max="5" min="1" placeholder="from 1 to 5" value={input.difficulty} name="difficulty" onChange={(e) => handleChange(e)} />
-                    {
-                        errors.difficulty && (<p>{errors.difficulty}</p>)
-                    }
+                   
                 </div>
                 <div>
                     <label> Duration: </label>
                     <input type="number" min="0" placeholder="months" value={input.duration} name="duration" onChange={(e) => handleChange(e)} />
-                    {
-                        errors.duration && (<p>{errors.duration}</p>)
-                    }
+                   
                 </div>
                 <div >
                     <label> Season: </label>
@@ -113,7 +120,7 @@ function CreateActivity() {
                 </select>
                 <ul><li>{input.countries.map(el => el + " ,")}</li></ul>
                 <button type="submit">Create Activity</button>
-
+               
             </form>
 
             {input.countries.map(el =>
@@ -129,3 +136,4 @@ function CreateActivity() {
 }
 
 export default CreateActivity
+
