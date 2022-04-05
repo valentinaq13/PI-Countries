@@ -2,6 +2,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const routes = require('./routes/index.js');
+//const { CORS_URL} = process.env;
 
 require('./db.js');
 
